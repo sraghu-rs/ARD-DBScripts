@@ -1,0 +1,8 @@
+---
+modules:
+  cloud:
+    token: '24adae0ebf69dd0650014367:a08f50f02735a9d113ce46966c8cc0c553511e6641878fe9a9588cdc49ea82780f7c6e60'
+    account: Broadcom
+    workspace: Broadcom Workspace Playground
+    project: raghav-DigitalBank
+    locations: harbor-5ec418dba3063b22d95e3b16
