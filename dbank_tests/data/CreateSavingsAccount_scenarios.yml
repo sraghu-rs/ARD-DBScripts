@@ -1,0 +1,674 @@
+---
+scenarios:
+
+  Create Savings Account TC 1:
+    follow-redirects: true
+    requests:
+      - url: '${BASE_URL}/api/v1/auth?username=${execId}&password=Demo123!'
+        method: POST
+        label: 1. Authenticate API User
+        headers:
+          Content-Type: application/json
+        assert:
+         - contains:
+           - '200'
+           subject: http-code
+           regexp: true
+           assume-success: true
+        extract-jsonpath:
+          authToken: 'authToken'
+      - url: '${BASE_URL}/api/v1/user/account'
+        method: POST
+        label: 2. Create Savings Account
+        headers:
+          Authorization: Bearer ${authToken}
+          Content-Type: application/json
+        body: '{ "accountName": "AKP Savings", "accountTypeCode": "MMA", "openingDeposit": 1051, "ownerTypeCode": "IND" }'
+        assert:
+         - contains:
+           - '406'
+           subject: http-code
+           regexp: true
+           assume-success: true
+    data-sources:
+    - data.csv
+
+  Create Savings Account TC 2:
+    follow-redirects: true
+    requests:
+      - url: '${BASE_URL}/api/v1/auth?username=${execId}&password=Demo123!'
+        method: POST
+        label: 1. Authenticate API User
+        headers:
+          Content-Type: application/json
+        assert:
+         - contains:
+           - '200'
+           subject: http-code
+           regexp: true
+           assume-success: true
+        extract-jsonpath:
+          authToken: 'authToken'
+      - url: '${BASE_URL}/api/v1/user/account'
+        method: POST
+        label: 2. Create Savings Account
+        headers:
+          Authorization: Bearer ${authToken}
+          Content-Type: application/json
+        body: '{ "accountName": "AKP Savings", "accountTypeCode": "MMA", "openingDeposit": -40, "ownerTypeCode": "IND" }'
+        assert:
+         - contains:
+           - '400'
+           subject: http-code
+           regexp: true
+           assume-success: true
+    data-sources:
+    - data.csv
+
+  Create Savings Account TC 3:
+    follow-redirects: true
+    requests:
+      - url: '${BASE_URL}/api/v1/auth?username=${execId}&password=Demo123!'
+        method: POST
+        label: 1. Authenticate API User
+        headers:
+          Content-Type: application/json
+        assert:
+         - contains:
+           - '200'
+           subject: http-code
+           regexp: true
+           assume-success: true
+        extract-jsonpath:
+          authToken: 'authToken'
+      - url: '${BASE_URL}/api/v1/user/account'
+        method: POST
+        label: 2. Create Savings Account
+        headers:
+          Authorization: Bearer ${authToken}
+          Content-Type: application/json
+        body: '{ "accountName": "AKP Savings", "accountTypeCode": "MMA", "openingDeposit": 2500, "ownerTypeCode": "IND" }'
+        assert:
+         - contains:
+           - '200'
+           subject: http-code
+           regexp: true
+           assume-success: true
+    data-sources:
+    - data.csv
+
+  Create Savings Account TC 4:
+    follow-redirects: true
+    requests:
+      - url: '${BASE_URL}/api/v1/auth?username=${execId}&password=Demo123!'
+        method: POST
+        label: 1. Authenticate API User
+        headers:
+          Content-Type: application/json
+        assert:
+         - contains:
+           - '200'
+           subject: http-code
+           regexp: true
+           assume-success: true
+        extract-jsonpath:
+          authToken: 'authToken'
+      - url: '${BASE_URL}/api/v1/user/account'
+        method: POST
+        label: 2. Create Savings Account
+        headers:
+          Authorization: Bearer ${authToken}
+          Content-Type: application/json
+        body: '{ "accountName": "AKP Savings", "accountTypeCode": "MMA", "openingDeposit": 2986, "ownerTypeCode": "IND" }'
+        assert:
+         - contains:
+           - '200'
+           subject: http-code
+           regexp: true
+           assume-success: true
+    data-sources:
+    - data.csv
+
+  Create Savings Account TC 5:
+    follow-redirects: true
+    requests:
+      - url: '${BASE_URL}/api/v1/auth?username=${execId}&password=Demo123!'
+        method: POST
+        label: 1. Authenticate API User
+        headers:
+          Content-Type: application/json
+        assert:
+         - contains:
+           - '200'
+           subject: http-code
+           regexp: true
+           assume-success: true
+        extract-jsonpath:
+          authToken: 'authToken'
+      - url: '${BASE_URL}/api/v1/user/account'
+        method: POST
+        label: 2. Create Savings Account
+        headers:
+          Authorization: Bearer ${authToken}
+          Content-Type: application/json
+        body: '{ "accountName": "AKP Savings", "accountTypeCode": "SAV", "openingDeposit": 25, "ownerTypeCode": "IND" }'
+        assert:
+         - contains:
+           - '200'
+           subject: http-code
+           regexp: true
+           assume-success: true
+    data-sources:
+    - data.csv
+
+  Create Savings Account TC 6:
+    follow-redirects: true
+    requests:
+      - url: '${BASE_URL}/api/v1/auth?username=${execId}&password=Demo123!'
+        method: POST
+        label: 1. Authenticate API User
+        headers:
+          Content-Type: application/json
+        assert:
+         - contains:
+           - '200'
+           subject: http-code
+           regexp: true
+           assume-success: true
+        extract-jsonpath:
+          authToken: 'authToken'
+      - url: '${BASE_URL}/api/v1/user/account'
+        method: POST
+        label: 2. Create Savings Account
+        headers:
+          Authorization: Bearer ${authToken}
+          Content-Type: application/json
+        body: '{ "accountName": "AKP Savings", "accountTypeCode": "SAV", "openingDeposit": 55, "ownerTypeCode": "IND" }'
+        assert:
+         - contains:
+           - '200'
+           subject: http-code
+           regexp: true
+           assume-success: true
+    data-sources:
+    - data.csv
+
+  Create Savings Account TC 7:
+    follow-redirects: true
+    requests:
+      - url: '${BASE_URL}/api/v1/auth?username=${execId}&password=Demo123!'
+        method: POST
+        label: 1. Authenticate API User
+        headers:
+          Content-Type: application/json
+        assert:
+         - contains:
+           - '200'
+           subject: http-code
+           regexp: true
+           assume-success: true
+        extract-jsonpath:
+          authToken: 'authToken'
+      - url: '${BASE_URL}/api/v1/user/account'
+        method: POST
+        label: 2. Create Savings Account
+        headers:
+          Authorization: Bearer ${authToken}
+          Content-Type: application/json
+        body: '{ "accountName": "AKP Savings", "accountTypeCode": "SAV", "openingDeposit": 20, "ownerTypeCode": "IND" }'
+        assert:
+         - contains:
+           - '406'
+           subject: http-code
+           regexp: true
+           assume-success: true
+    data-sources:
+    - data.csv
+
+  Create Savings Account TC 8:
+    follow-redirects: true
+    requests:
+      - url: '${BASE_URL}/api/v1/auth?username=${execId}&password=Demo123!'
+        method: POST
+        label: 1. Authenticate API User
+        headers:
+          Content-Type: application/json
+        assert:
+         - contains:
+           - '200'
+           subject: http-code
+           regexp: true
+           assume-success: true
+        extract-jsonpath:
+          authToken: 'authToken'
+      - url: '${BASE_URL}/api/v1/user/account'
+        method: POST
+        label: 2. Create Savings Account
+        headers:
+          Authorization: Bearer ${authToken}
+          Content-Type: application/json
+        body: '{ "accountName": "AKP Savings", "accountTypeCode": "SAV", "openingDeposit": -19, "ownerTypeCode": "IND" }'
+        assert:
+         - contains:
+           - '400'
+           subject: http-code
+           regexp: true
+           assume-success: true
+    data-sources:
+    - data.csv
+
+  Create Savings Account TC 9:
+    follow-redirects: true
+    requests:
+      - url: '${BASE_URL}/api/v1/auth?username=${execId}&password=Demo123!'
+        method: POST
+        label: 1. Authenticate API User
+        headers:
+          Content-Type: application/json
+        assert:
+         - contains:
+           - '200'
+           subject: http-code
+           regexp: true
+           assume-success: true
+        extract-jsonpath:
+          authToken: 'authToken'
+      - url: '${BASE_URL}/api/v1/user/account'
+        method: POST
+        label: 2. Create Savings Account
+        headers:
+          Authorization: Bearer ${authToken}
+          Content-Type: application/json
+        body: '{ "accountName": "AKP Savings", "accountTypeCode": "", "openingDeposit": , "ownerTypeCode": "IND" }'
+        assert:
+         - contains:
+           - '400'
+           subject: http-code
+           regexp: true
+           assume-success: true
+    data-sources:
+    - data.csv
+
+  Create Savings Account TC 10:
+    follow-redirects: true
+    requests:
+      - url: '${BASE_URL}/api/v1/auth?username=${execId}&password=Demo123!'
+        method: POST
+        label: 1. Authenticate API User
+        headers:
+          Content-Type: application/json
+        assert:
+         - contains:
+           - '200'
+           subject: http-code
+           regexp: true
+           assume-success: true
+        extract-jsonpath:
+          authToken: 'authToken'
+      - url: '${BASE_URL}/api/v1/user/account'
+        method: POST
+        label: 2. Create Savings Account
+        headers:
+          Authorization: Bearer ${authToken}
+          Content-Type: application/json
+        body: '{ "accountName": "AKP Savings", "accountTypeCode": "MMA", "openingDeposit": 2030, "ownerTypeCode": "JNT" }'
+        assert:
+         - contains:
+           - '406'
+           subject: http-code
+           regexp: true
+           assume-success: true
+    data-sources:
+    - data.csv
+
+  Create Savings Account TC 11:
+    follow-redirects: true
+    requests:
+      - url: '${BASE_URL}/api/v1/auth?username=${execId}&password=Demo123!'
+        method: POST
+        label: 1. Authenticate API User
+        headers:
+          Content-Type: application/json
+        assert:
+         - contains:
+           - '200'
+           subject: http-code
+           regexp: true
+           assume-success: true
+        extract-jsonpath:
+          authToken: 'authToken'
+      - url: '${BASE_URL}/api/v1/user/account'
+        method: POST
+        label: 2. Create Savings Account
+        headers:
+          Authorization: Bearer ${authToken}
+          Content-Type: application/json
+        body: '{ "accountName": "AKP Savings", "accountTypeCode": "MMA", "openingDeposit": -70, "ownerTypeCode": "JNT" }'
+        assert:
+         - contains:
+           - '400'
+           subject: http-code
+           regexp: true
+           assume-success: true
+    data-sources:
+    - data.csv
+
+  Create Savings Account TC 12:
+    follow-redirects: true
+    requests:
+      - url: '${BASE_URL}/api/v1/auth?username=${execId}&password=Demo123!'
+        method: POST
+        label: 1. Authenticate API User
+        headers:
+          Content-Type: application/json
+        assert:
+         - contains:
+           - '200'
+           subject: http-code
+           regexp: true
+           assume-success: true
+        extract-jsonpath:
+          authToken: 'authToken'
+      - url: '${BASE_URL}/api/v1/user/account'
+        method: POST
+        label: 2. Create Savings Account
+        headers:
+          Authorization: Bearer ${authToken}
+          Content-Type: application/json
+        body: '{ "accountName": "AKP Savings", "accountTypeCode": "MMA", "openingDeposit": 2500, "ownerTypeCode": "JNT" }'
+        assert:
+         - contains:
+           - '200'
+           subject: http-code
+           regexp: true
+           assume-success: true
+    data-sources:
+    - data.csv
+
+  Create Savings Account TC 13:
+    follow-redirects: true
+    requests:
+      - url: '${BASE_URL}/api/v1/auth?username=${execId}&password=Demo123!'
+        method: POST
+        label: 1. Authenticate API User
+        headers:
+          Content-Type: application/json
+        assert:
+         - contains:
+           - '200'
+           subject: http-code
+           regexp: true
+           assume-success: true
+        extract-jsonpath:
+          authToken: 'authToken'
+      - url: '${BASE_URL}/api/v1/user/account'
+        method: POST
+        label: 2. Create Savings Account
+        headers:
+          Authorization: Bearer ${authToken}
+          Content-Type: application/json
+        body: '{ "accountName": "AKP Savings", "accountTypeCode": "MMA", "openingDeposit": 3874, "ownerTypeCode": "JNT" }'
+        assert:
+         - contains:
+           - '200'
+           subject: http-code
+           regexp: true
+           assume-success: true
+    data-sources:
+    - data.csv
+
+  Create Savings Account TC 14:
+    follow-redirects: true
+    requests:
+      - url: '${BASE_URL}/api/v1/auth?username=${execId}&password=Demo123!'
+        method: POST
+        label: 1. Authenticate API User
+        headers:
+          Content-Type: application/json
+        assert:
+         - contains:
+           - '200'
+           subject: http-code
+           regexp: true
+           assume-success: true
+        extract-jsonpath:
+          authToken: 'authToken'
+      - url: '${BASE_URL}/api/v1/user/account'
+        method: POST
+        label: 2. Create Savings Account
+        headers:
+          Authorization: Bearer ${authToken}
+          Content-Type: application/json
+        body: '{ "accountName": "AKP Savings", "accountTypeCode": "SAV", "openingDeposit": 25, "ownerTypeCode": "JNT" }'
+        assert:
+         - contains:
+           - '200'
+           subject: http-code
+           regexp: true
+           assume-success: true
+    data-sources:
+    - data.csv
+
+  Create Savings Account TC 15:
+    follow-redirects: true
+    requests:
+      - url: '${BASE_URL}/api/v1/auth?username=${execId}&password=Demo123!'
+        method: POST
+        label: 1. Authenticate API User
+        headers:
+          Content-Type: application/json
+        assert:
+         - contains:
+           - '200'
+           subject: http-code
+           regexp: true
+           assume-success: true
+        extract-jsonpath:
+          authToken: 'authToken'
+      - url: '${BASE_URL}/api/v1/user/account'
+        method: POST
+        label: 2. Create Savings Account
+        headers:
+          Authorization: Bearer ${authToken}
+          Content-Type: application/json
+        body: '{ "accountName": "AKP Savings", "accountTypeCode": "SAV", "openingDeposit": 897, "ownerTypeCode": "JNT" }'
+        assert:
+         - contains:
+           - '200'
+           subject: http-code
+           regexp: true
+           assume-success: true
+    data-sources:
+    - data.csv
+
+  Create Savings Account TC 16:
+    follow-redirects: true
+    requests:
+      - url: '${BASE_URL}/api/v1/auth?username=${execId}&password=Demo123!'
+        method: POST
+        label: 1. Authenticate API User
+        headers:
+          Content-Type: application/json
+        assert:
+         - contains:
+           - '200'
+           subject: http-code
+           regexp: true
+           assume-success: true
+        extract-jsonpath:
+          authToken: 'authToken'
+      - url: '${BASE_URL}/api/v1/user/account'
+        method: POST
+        label: 2. Create Savings Account
+        headers:
+          Authorization: Bearer ${authToken}
+          Content-Type: application/json
+        body: '{ "accountName": "AKP Savings", "accountTypeCode": "SAV", "openingDeposit": 3, "ownerTypeCode": "JNT" }'
+        assert:
+         - contains:
+           - '406'
+           subject: http-code
+           regexp: true
+           assume-success: true
+    data-sources:
+    - data.csv
+
+  Create Savings Account TC 17:
+    follow-redirects: true
+    requests:
+      - url: '${BASE_URL}/api/v1/auth?username=${execId}&password=Demo123!'
+        method: POST
+        label: 1. Authenticate API User
+        headers:
+          Content-Type: application/json
+        assert:
+         - contains:
+           - '200'
+           subject: http-code
+           regexp: true
+           assume-success: true
+        extract-jsonpath:
+          authToken: 'authToken'
+      - url: '${BASE_URL}/api/v1/user/account'
+        method: POST
+        label: 2. Create Savings Account
+        headers:
+          Authorization: Bearer ${authToken}
+          Content-Type: application/json
+        body: '{ "accountName": "AKP Savings", "accountTypeCode": "SAV", "openingDeposit": -79, "ownerTypeCode": "JNT" }'
+        assert:
+         - contains:
+           - '400'
+           subject: http-code
+           regexp: true
+           assume-success: true
+    data-sources:
+    - data.csv
+
+  Create Savings Account TC 18:
+    follow-redirects: true
+    requests:
+      - url: '${BASE_URL}/api/v1/auth?username=${execId}&password=Demo123!'
+        method: POST
+        label: 1. Authenticate API User
+        headers:
+          Content-Type: application/json
+        assert:
+         - contains:
+           - '200'
+           subject: http-code
+           regexp: true
+           assume-success: true
+        extract-jsonpath:
+          authToken: 'authToken'
+      - url: '${BASE_URL}/api/v1/user/account'
+        method: POST
+        label: 2. Create Savings Account
+        headers:
+          Authorization: Bearer ${authToken}
+          Content-Type: application/json
+        body: '{ "accountName": "AKP Savings", "accountTypeCode": "", "openingDeposit": , "ownerTypeCode": "JNT" }'
+        assert:
+         - contains:
+           - '400'
+           subject: http-code
+           regexp: true
+           assume-success: true
+    data-sources:
+    - data.csv
+
+  Create Savings Account TC 19:
+    follow-redirects: true
+    requests:
+      - url: '${BASE_URL}/api/v1/auth?username=${execId}&password=Demo123!'
+        method: POST
+        label: 1. Authenticate API User
+        headers:
+          Content-Type: application/json
+        assert:
+         - contains:
+           - '200'
+           subject: http-code
+           regexp: true
+           assume-success: true
+        extract-jsonpath:
+          authToken: 'authToken'
+      - url: '${BASE_URL}/api/v1/user/account'
+        method: POST
+        label: 2. Create Savings Account
+        headers:
+          Authorization: Bearer ${authToken}
+          Content-Type: application/json
+        body: '{ "accountName": "AKP Savings", "accountTypeCode": "", "openingDeposit": , "ownerTypeCode": "" }'
+        assert:
+         - contains:
+           - '400'
+           subject: http-code
+           regexp: true
+           assume-success: true
+    data-sources:
+    - data.csv
+
+  Create Savings Account TC 20:
+    follow-redirects: true
+    requests:
+      - url: '${BASE_URL}/api/v1/auth?username=${execId}&password=Demo123!'
+        method: POST
+        label: 1. Authenticate API User
+        headers:
+          Content-Type: application/json
+        assert:
+         - contains:
+           - '200'
+           subject: http-code
+           regexp: true
+           assume-success: true
+        extract-jsonpath:
+          authToken: 'authToken'
+      - url: '${BASE_URL}/api/v1/user/account'
+        method: POST
+        label: 2. Create Savings Account
+        headers:
+          Authorization: Bearer ${authToken}
+          Content-Type: application/json
+        body: '{ "accountName": "", "accountTypeCode": "", "openingDeposit": , "ownerTypeCode": "" }'
+        assert:
+         - contains:
+           - '400'
+           subject: http-code
+           regexp: true
+           assume-success: true
+    data-sources:
+    - data.csv
+
+  Create Savings Account TC 21:
+    follow-redirects: true
+    requests:
+      - url: '${BASE_URL}/api/v1/auth?username=${execId}&password=Demo123!'
+        method: POST
+        label: 1. Authenticate API User
+        headers:
+          Content-Type: application/json
+        assert:
+         - contains:
+           - '200'
+           subject: http-code
+           regexp: true
+           assume-success: true
+        extract-jsonpath:
+          authToken: 'authToken'
+      - url: '${BASE_URL}/api/v1/user/account'
+        method: POST
+        label: 2. Create Savings Account
+        headers:
+          Authorization: Bearer ${authToken}
+          Content-Type: application/json
+        body: '{ "accountName": "AKP Savings )(($)!(", "accountTypeCode": "", "openingDeposit": , "ownerTypeCode": "" }'
+        assert:
+         - contains:
+           - '400'
+           subject: http-code
+           regexp: true
+           assume-success: true
+    data-sources:
+    - data.csv
